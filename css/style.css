@@ -1,0 +1,15 @@
+.keyster-blue {
+	color: #2a9fd6;
+}
+
+.bg-keyster-blue {
+	background-color: #2a9fd6;
+}
+
+.bg-nearer-white {
+	background-color: #f8f8f8;
+}
+
+.link:focus {
+	outline: 0;
+}
