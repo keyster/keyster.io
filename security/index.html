@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Keyster</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/img/logo.png">
+    <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+    <header class="sans-serif w-100 mb3 ph3 pv3 pv4-ns ph4-m ph5-l f5 f4-ns">
+      <nav class="fl">
+        <a class="link black dim ph1 ph3-l" href="/" title="Home">Home</a>
+        <a class="link black dim ph1 ph3-l" href="/downloads/" title="Downloads">Downloads</a>
+        <a class="link keyster-blue dim ph1 ph1-m ph3-l pb2 bb" href="/security/" title="Security">Security</a>
+      </nav>
+      <nav class="fr">
+        <a class="link keyster-blue dim ba br-pill ph3 pv1" href="https://web.keyster.io" title="Web Client">Web Client</a>
+      </nav>
+    </header>
+    <div class="sans-serif mh4 mh6-l mv4">
+      <div class="lh-title lh-copy-ns">
+        <div class="mv3 br2 bg-nearer-white pa3">
+          <div class="f4 keyster-blue mb3">
+            Keyster's Core
+          </div>
+          <div class="mid-gray">
+            <p>A Keyster account essentially consists of a set of entries, one for each of your accounts. Each entry consists of several fields of metadata. The title, subtitle, and description are for your use &mdash; we recommend storing the website's name, your username, and important details in the respective fields. The other fields are parameters for password generation &mdash; the password's length, character set, and other items that we do not recommend modifying unless you are familiar with their use (see Hashing).</p>
+            An important thing to remember is that you do not have to use Keyster for every trivial account you create. It is perfectly fine to use a memorized password for unimportant websites, but make sure it is not the master key.
+          </div>
+        </div>
+        <div class="mv3 br2 bg-nearer-white pa3">
+          <div class="f4 keyster-blue mb3">
+            Generating Passwords
+          </div>
+          <div class="mid-gray">
+            <p>Each entry also contains a randomly generated string of data, called a salt. When you enter your master key, it is combined with the salt and hashed. A hash is essentially an irreverisble function; that is, someone will not be able to determine a hash's input based on its output. The output of your hashed master key and salt will be used, along with the entry's specified length and character set, to generate a password. For hashing, Keyster uses the scrypt algorithm.</p>
+            Because each entry has a different salt, you can use the same master key for every account and generate a different password. This provides two benefits:
+            <ul>
+              <li>Your account passwords will be much longer and more complex than anything you can remember in your head.</li>
+              <li>If one website is ever compromised, the attacker will have no way to log in to your other accounts. They also cannot derive any meaningful information from the password, such as the master key.</li>
+            </ul>
+            Your master key and generated passwords are never stored permanently; only salts are stored on your devices and Keyster's servers. Even if an attacker knows a password and its corresponding salt, they will not be able to derive the master key.
+          </div>
+        </div>
+        <div class="mv3 br2 bg-nearer-white pa3">
+          <div class="f4 keyster-blue mb3">
+            Hashing
+          </div>
+          <div class="mid-gray">
+            Scrypt is a hashing algorithm specifically designed to require a lot of computation. Taking 2 seconds to generate a password isn't majorly inconvenient for you, but it effectively prevents an attacker from bruteforcing your master key. Keyster allows users to set an entry's scrypt parameters to make it more computationally intensive and thereby harder to crack, but the default parameters will easily suffice.
+          </div>
+        </div>
+        <div class="mv3 br2 bg-nearer-white pa3">
+          <div class="f4 keyster-blue mb3">
+            Authentication
+          </div>
+          <div class="mid-gray">
+            Your Keyster account is associated with a phone number, which you will need for authentication whenever you log in on a new device. If you ever lose your phone or switch phone numbers, make sure that you are logged in on another device; on there, you can mass export your entries and import them into a new account.
+          </div>
+        </div>
+        <div class="mv3 br2 bg-nearer-white pa3">
+          <div class="f4 keyster-blue mb3">
+            Archiving
+          </div>
+          <div class="mid-gray">
+            Keyster allows you to delete entries and modify parameters unimportant to the password &mdash; the title, subtitle, and description. These changes will be stored for 30 days in your archive, where you can view and revert them. If anyone manages to get access to your account and tampers with your entries, the archive is a safeguard to that; make sure to periodically check it.
+          </div>
+        </div>
+      </div>
+      <div>
+        <hr class="mt4 mb3 bw1 b--black-10">
+        <div class="f6">
+          <p class="dib mid-gray pr2">Keyster is an ongoing project developed by the following: Kevin Higgs, William Wang</p>
+          <a class="dib link white bg-dark-gray dim ba br2 pa2" href="https://github.com/keyster" title="GitHub">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
